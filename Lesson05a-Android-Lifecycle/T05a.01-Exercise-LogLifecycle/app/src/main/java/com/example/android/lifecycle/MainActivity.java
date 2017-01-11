@@ -48,17 +48,43 @@ public class MainActivity extends AppCompatActivity {
         mLifecycleDisplay = (TextView) findViewById(R.id.tv_lifecycle_events_display);
 
         // TODO (1) Use logAndAppend within onCreate
+        logAndAppend("DAISY");
     }
 
     // TODO (2) Override onStart, call super.onStart, and call logAndAppend with ON_START
 
+    @Override
+    protected void onStart() {
+        logAndAppend("onStart");
+    }
+
     // TODO (3) Override onResume, call super.onResume, and call logAndAppend with ON_RESUME
+
+    @Override
+    protected void onResume() {
+        logAndAppend("onResume");
+    }
 
     // TODO (4) Override onPause, call super.onPause, and call logAndAppend with ON_PAUSE
 
+    @Override
+    protected void onPause() {
+        logAndAppend("onPause");
+    }
+
     // TODO (5) Override onStop, call super.onStop, and call logAndAppend with ON_STOP
 
+    @Override
+    protected void onStop() {
+        logAndAppend("onStop");
+    }
+
     // TODO (6) Override onRestart, call super.onRestart, and call logAndAppend with ON_RESTART
+
+    @Override
+    protected void onRestart() {
+        logAndAppend("onRestart");
+    }
 
     // TODO (7) Override onDestroy, call super.onDestroy, and call logAndAppend with ON_DESTROY
     /**
@@ -70,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         logAndAppend(ON_DESTROY);
     }
 

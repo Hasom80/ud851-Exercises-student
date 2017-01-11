@@ -1,17 +1,10 @@
-# Neverdie
-멘토
-+ 이준호
+# Toy App Exercise Repo
 
-팀원
-+ 강귀선
-+ 김건희
-+ 김장민
-+ 김정래
-+ 박병주
-+ 복다훈
-+ 양재형
-+ 이은지
-+ 정원오
+This is a exercise repository for Developing Android Apps. 
+You can learn more about how to use this repository [here]
+(https://classroom.udacity.com/courses/ud851/lessons/93affc67-3f0b-4f9b-b3a4-a7a26f241a86/concepts/115d08bb-f114-46fa-b693-5c6ce1445c07)
 
-과제제출
-+ Exercise1 ~ 10
+
+
+
+# Finally modified by eunji0430

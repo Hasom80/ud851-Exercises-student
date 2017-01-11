@@ -64,9 +64,16 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClickShareTextButton(View v) {
         // TODO (5) Specify a String you'd like to share
+        String mimeType = "text/plain";
+        String title="Learning How to Share";
+        String textToShare = "Hello there";
 
         // TODO (6) Replace the Toast with shareText, passing in the String from step 5
-        Toast.makeText(this, "TODO: Share text when this is clicked", Toast.LENGTH_LONG).show();
+        ShareCompat.IntentBuilder.from(this)
+                .setChooserTitle(title)
+                .setType(mimeType)
+                .setText(textToShare)
+                .startChooser();
     }
 
     /**
@@ -142,10 +149,16 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (1) Create a void method called shareText that accepts a String as a parameter
     // Do steps 2 - 4 within the shareText method
-
+    shareText(String shreText){
         // TODO (2) Create a String variable called mimeType and set it to "text/plain"
-
+        String mimeTye = "text/plain";
         // TODO (3) Create a title for the chooser window that will pop up
-
+        String title ="This is a title";
         // TODO (4) Use ShareCompat.IntentBuilder to build the Intent and start the chooser
+        ShareCompat.IntentBuilder.from(this)
+                .setType(mimeTye)
+                .setChooserTitle(title)
+                .setText(shareText)
+                .startChooser();
+    }
 }
