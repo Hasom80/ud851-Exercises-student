@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 // TODO (1) Implement OnPreferenceChangeListener
 public class SettingsFragment extends PreferenceFragmentCompat implements
-        OnSharedPreferenceChangeListener {
+        OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -52,6 +52,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
             }
         }
         // TODO (3) Add the OnPreferenceChangeListener specifically to the EditTextPreference
+        Preference preference = findPreference(getString(R.string.pref_size_key));
+        preference.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -105,5 +107,29 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
         super.onDestroy();
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        Toast errorMessage = Toast.makeText(getContext(),
+                "You've written wrong number(Number shoule be 0<Number<=3)", Toast.LENGTH_SHORT);
+
+        String sizeKey = getString(R.string.pref_size_key);
+        if(preference.getKey().equals(sizeKey)) {
+            String stringSize = ((String)newValue).trim();
+            if(stringSize.equals("")) stringSize = "1";
+            try {
+                float size = Float.parseFloat(stringSize);
+                if(size <= 0 || size > 3) {
+                    errorMessage.show();
+                    return false;
+                }
+            } catch(NumberFormatException e) {
+                errorMessage.show();
+                return false;
+            }
+        }
+
+        return true;
     }
 }
